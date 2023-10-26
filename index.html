@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      width="device-width"
+      height="device-height"
+      initial-scale="1.0"
+      user-scalable="no"
+      shrink-to-fit="no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Calculator by James Ngugi</title>
+    <link href="style.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Common Tags -->
+    <meta content="#171825" name="theme-color" />
+    <meta
+      name="keywords"
+      content="JavaScript Calculator,JavaScript, Calculator, JavaScript Calculator, JSCalci, JavaScriptCalci, James Ngugi"
+    />
+    <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+    <meta property="og:title" content="JavaScript Calculator" />
+    <meta
+      property="og:description"
+      content="JavaScript Calculator by James Ngugi"
+    />
+    <meta
+      property="description"
+      content="JavaScript Calculator by James Ngugi"
+    />
+    <meta
+      itemprop="description"
+      content="JavaScript Calculator by James Ngugi"
+    />
+
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+  </head>
+  <body>
+    <div class="toggle-container">
+      <label class="toggle-switch">
+        <input type="checkbox" id="toggle-mode" />
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+    <div class="container">
+      <h1>
+        <a
+          style="
+            text-decoration: none;
+            color: #f1c40f;
+            margin-left: 1.25rem;
+            cursor: pointer;
+          "
+          onclick="location.reload();"
+          >CALCULATOR</a
+        >
+        <img id="historybutton" src="./history.png" />
+      </h1>
+      <div class="calculator">
+        <input type="text" name="screen" id="answer" readonly />
+        <table>
+          <tr>
+            <td><button value="sin">sin</button></td>
+            <td><button value="cos">cos</button></td>
+            <td><button value="tan">tan</button></td>
+            <td><button>(</button></td>
+            <td><button>)</button></td>
+            <td>
+              <div class="row">
+                <div class="col">
+                  <button
+                    style="
+                      background-color: #f01600;
+                      font-weight: bold;
+                      color: #ecf0f1;
+                      width: 8vw;
+                    "
+                    onclick="clearAll()"
+                  >
+                    C
+                  </button>
+                </div>
+                <div class="col">
+                  <button
+                    style="
+                      background-color: #f01600;
+                      font-weight: bold;
+                      color: #ecf0f1;
+                      width: 8vw;
+                    "
+                    onclick="deleteLastEntry()"
+                  >
+                    CE
+                  </button>
+                </div>
+              </div>
+            </td>
+            <td><button value="%">%</button></td>
+          </tr>
+          <tr>
+            <td><button value="asin">sin⁻¹</button></td>
+            <td><button value="acos">cos⁻¹</button></td>
+            <td><button value="atan">tan⁻¹</button></td>
+            <td><button value="7">7</button></td>
+            <td><button value="8">8</button></td>
+            <td><button value="9">9</button></td>
+            <td><button value="*" class="operator">*</button></td>
+          </tr>
+          <tr>
+            <td><button value="sinh">sinh</button></td>
+            <td><button value="cosh">cosh</button></td>
+            <td><button value="tanh">tanh</button></td>
+            <td><button value="4">4</button></td>
+            <td><button value="5">5</button></td>
+            <td><button value="6">6</button></td>
+            <td><button value="-" class="operator">-</button></td>
+          </tr>
+          <tr>
+            <td><button value="sinhInv">sinh⁻¹</button></td>
+            <td><button value="coshInv">cosh⁻¹</button></td>
+            <td><button value="tanhInv">tanh⁻¹</button></td>
+            <td><button value="1">1</button></td>
+            <td><button value="2">2</button></td>
+            <td><button value="3">3</button></td>
+            <td><button value="+" class="operator">+</button></td>
+          </tr>
+          <tr>
+            <td><button value="pow(x,y)">xⁿ</button></td>
+            <td><button value="sqrt">√</button></td>
+            <td><button value="∛">∛</button></td>
+            <td><button value="0">0</button></td>
+            <td>
+              <button style="font-weight: bold" value="." class="decimal">
+                .
+              </button>
+            </td>
+            <td><button value="&sol;" class="operator">/</button></td>
+            <td>
+              <button
+                style="
+                  background-color: #25db72;
+                  font-weight: bold;
+                  color: #ecf0f1;
+                "
+                value="="
+                id="equals"
+                class="operator"
+              >
+                =
+              </button>
+            </td>
+          </tr>
+        </table>
+        <hr style="max-width: 50vw" />
+        <div
+          style="
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          Made by James Ngugi
+        </div>
+      </div>
+    </div>
+    <div id="bar1" class="bars"></div>
+    <div id="bar2" class="bars"></div>
+    <div id="history"></div>
+    <div id="turn">PLEASE TURN YOUR DEVICE</div>
+  </body>
+  <script src="./hist.js"></script>
+  <script src="./calc.js"></script>
+  <script>
+    function deleteLastEntry() {
+      const answer = document.getElementById("answer");
+      let currentValue = answer.value;
+      currentValue = currentValue.slice(0, -1);
+      answer.value = currentValue;
+      flag = 0;
+    }
+  </script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-70447982-5"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "UA-70447982-5");
+  </script>
+
+  <script>
+    const toggleMode = document.getElementById("toggle-mode");
+    const container = document.querySelector(".container");
+
+    toggleMode.addEventListener("change", function () {
+      container.classList.toggle("dark-mode");
+    });
+
+    document.addEventListener("keydown", function (event) {
+      handleKeyPress(event.key);
+    });
+
+    // This function will be responsible for handling the button press from the keyboard..Try thses key also if want you can also chnage these settings,...
+    function handleKeyPress(key) {
+      //  "Enter" key is pressed, trigger the "=" button press
+      if (key === "Enter") {
+        handleButtonPress("=");
+      }
+      // "Delete" or "Backspace" key is pressed, trigger the "CE" button press
+      if (key === "Delete" || key === "Backspace") {
+        handleButtonPress("CE");
+      }
+      //number key is pressed, trigger the corresponding number button press
+      if (/[0-9]/.test(key)) {
+        handleButtonPress(key);
+      }
+      //  operator key is pressed (+, -, *, /), trigger the corresponding operator button press
+      if (/[\+\-\*\/%]/.test(key)) {
+        handleButtonPress(key);
+      }
+    }
+    function handleButtonPress(value) {
+      // This function simulates the button press of the calculator for the given value
+      // Find the corresponding button element based on the value
+      const button = document.querySelector(`button[value="${value}"]`);
+      if (button) {
+        button.click();
+      }
+    }
+  </script>
+</html>
